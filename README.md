@@ -36,39 +36,9 @@ AMPC addresses this through **adaptive hardware parallelism**:
 
 The complete accelerator datapath integrates 12 modular SystemVerilog blocks:
 
-```
-                                  +-------------------------------------------------------------+
-                                  |                          ampc_top                           |
-                                  |                                                             |
-  [ibuf_wr/rd] ------------> [ Input Buffer (64x8)  ]                                           |
-  [wbuf_wr/rd] ------------> [ Weight Buffer (64x8) ]                                           |
-                                  |                                                             |
-  [start, workload_size] --> [ Workload Analyzer ]                                              |
-            |                     | (selected_capacity, remainder telemetry)                    |
-            +--------------> [ Adaptive Controller FSM ]                                        |
-                                  | (core_en[3:0], dynamic lane_mask, chunk_valid)              |
-                                  v                                                             |
-                             [ Pipeline Decoupling Register Stage (Stage 14 Timing Fix) ]       |
-                                  |                                                             |
-                     +------------+------------+------------+                                   |
-                     |            |            |            |                                   |
-                  [AMPC-2]     [AMPC-4]     [AMPC-8]    [AMPC-16]                               |
-                  (2 Lanes)    (4 Lanes)    (8 Lanes)   (16 Lanes)                              |
-                     |            |            |            |                                   |
-                     +------------+-----+------+------------+                                   |
-                                        | (Muxed signed INT32[0:15] + Pipelined Mask)           |
-                                        v                                                       |
-                               [ Common Accumulator ]                                           |
-                               (Spatial Reduction Tree + Temporal Multi-Cycle Accumulation)     |
-                                        | (accumulated_out: INT32)                              |
-                                        v                                                       |
-                                  [ ReLU Unit ]                                                 |
-                               (Zero-Latency Combinational Signed Clamp)                        |
-                                        | (output_data: INT32)                                  |
-                                        v                                                       |
-                    [ Status Flags: ready, busy, done, output_valid ]                           |
-                                  +-------------------------------------------------------------+
-```
+<img width="1191" height="237" alt="image" src="https://github.com/user-attachments/assets/1d9bf45d-87a0-4155-899b-4e5c2875dd8a" />
+
+
 
 ### Execution Flow:
 1. **Decode & Workload Chunking**: The controller evaluates requested workload size $W$ and determines whether it can be computed in a single chunk ($W \le 16$) or requires iterative decomposition ($W > 16$).
@@ -98,16 +68,26 @@ For full cycle-by-cycle waveform alignments and state diagrams, see [docs/archit
 
 ## 5. Numerical Formats & Data Representations
 
-The architecture uses standard integer quantization parameters common to TinyML frameworks:
+The architecture uses integer quantization parameters for TinyML inference:
 
-- **Input Activations ($x_i$)**: Signed 8-bit integer (`INT8`), dynamic range $[-128, +127]$.
-- **Weights ($w_i$)**: Signed 8-bit integer (`INT8`), dynamic range $[-128, +127]$.
-- **Multiplier Intermediate Product**: Signed 16-bit integer (`INT16`), $[-16,256, +16,384]$.
-- **Sign Extension**: 16-bit product sign-extended to 32 bits before spatial addition.
-- **Accumulator Precision**: Signed 32-bit integer (`INT32`), dynamic range $[-2^{31}, +2^{31}-1]$.
-- **Spatial Reduction Headroom**: 36-bit internal adder tree (`ACC_WIDTH + $clog2(16) = 36`) to eliminate intermediate spatial overflow.
-- **Activation Output (ReLU)**: Signed 32-bit integer (`INT32`), clamped at $\max(0, \text{accumulated\_out})$.
+- **Input Activations ($x_i$):** Signed 8-bit integer (`INT8`), dynamic range $[-128, +127]$.
+- **Weights ($w_i$):** Signed 8-bit integer (`INT8`), dynamic range $[-128, +127]$.
+- **Multiplier Intermediate Product:** Signed 16-bit integer (`INT16`), with a product range of $[-16,384, +16,384]$.
+- **Sign Extension:** The 16-bit multiplication result is sign-extended to 32 bits before spatial accumulation.
+- **Accumulator Precision:** Signed 32-bit integer (`INT32`), with dynamic range $[-2^{31}, 2^{31}-1]$.
+- **Spatial Reduction Headroom:** A 36-bit internal adder tree is used for the reduction of up to 16 signed 32-bit values, since 32 + log₂(16) = 36 bits.
+- **Activation Output (ReLU):** Signed 32-bit integer (`INT32`), calculated as `output_data = max(0, accumulated_out)`.
 
+### Numerical Summary
+
+| Parameter | Format | Range |
+|---|---|---|
+| Input Activations | INT8 | $[-128, 127]$ |
+| Weights | INT8 | $[-128, 127]$ |
+| Multiplier Product | INT16 | $[-16,384, 16,384]$ |
+| Accumulator | INT32 | $[-2^{31}, 2^{31}-1]$ |
+| Spatial Reduction | INT36 | $[-2^{35}, 2^{35}-1]$ |
+| ReLU Output | INT32 | $[0, 2^{31}-1]$ |
 ---
 
 ## 6. RTL Design Overview
