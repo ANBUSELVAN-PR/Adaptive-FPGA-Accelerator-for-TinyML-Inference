@@ -1,0 +1,162 @@
+{
+    "m1_mnist_w9": {
+        "model": "MNIST TinyMLP",
+        "layer": "FC1",
+        "op_type": "Fully-Connected Dot-Product",
+        "workload_size": 9,
+        "decomp": "AMPC-16 (9 lanes active)",
+        "chunks": 1,
+        "raw_mac_sum": 1121,
+        "relu_out": 1121
+    },
+    "m1_mnist_w17": {
+        "model": "MNIST TinyMLP",
+        "layer": "FC1",
+        "op_type": "Fully-Connected Dot-Product",
+        "workload_size": 17,
+        "decomp": "16 + 1 (AMPC-16 + AMPC-2)",
+        "chunks": 2,
+        "raw_mac_sum": 2223,
+        "relu_out": 2223
+    },
+    "m1_mnist_w25": {
+        "model": "MNIST TinyMLP",
+        "layer": "FC1",
+        "op_type": "Fully-Connected Dot-Product",
+        "workload_size": 25,
+        "decomp": "16 + 9 (AMPC-16 + AMPC-16 partial)",
+        "chunks": 2,
+        "raw_mac_sum": 4465,
+        "relu_out": 4465
+    },
+    "m1_mnist_w33": {
+        "model": "MNIST TinyMLP",
+        "layer": "FC1",
+        "op_type": "Fully-Connected Dot-Product",
+        "workload_size": 33,
+        "decomp": "16 + 16 + 1 (2x AMPC-16 + AMPC-2)",
+        "chunks": 3,
+        "raw_mac_sum": 6802,
+        "relu_out": 6802
+    },
+    "m1_mnist_w784": {
+        "model": "MNIST TinyMLP",
+        "layer": "FC1",
+        "op_type": "Fully-Connected Dot-Product",
+        "workload_size": 784,
+        "decomp": "49 x 16 (49x AMPC-16 chunks)",
+        "chunks": 49,
+        "raw_mac_sum": 40691,
+        "relu_out": 40691
+    },
+    "m2_fashion_w9": {
+        "model": "Fashion-MNIST CNN",
+        "layer": "Conv1",
+        "op_type": "Conv2D 3x3 Kernel (1 channel)",
+        "workload_size": 9,
+        "decomp": "AMPC-16 (9 lanes active)",
+        "chunks": 1,
+        "raw_mac_sum": 24812,
+        "relu_out": 24812
+    },
+    "m2_fashion_w17": {
+        "model": "Fashion-MNIST CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (17 ops)",
+        "workload_size": 17,
+        "decomp": "16 + 1 (AMPC-16 + AMPC-2)",
+        "chunks": 2,
+        "raw_mac_sum": -29587,
+        "relu_out": 0
+    },
+    "m2_fashion_w25": {
+        "model": "Fashion-MNIST CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (25 ops)",
+        "workload_size": 25,
+        "decomp": "16 + 9 (AMPC-16 + AMPC-16 partial)",
+        "chunks": 2,
+        "raw_mac_sum": -27323,
+        "relu_out": 0
+    },
+    "m2_fashion_w33": {
+        "model": "Fashion-MNIST CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (33 ops)",
+        "workload_size": 33,
+        "decomp": "16 + 16 + 1 (2x AMPC-16 + AMPC-2)",
+        "chunks": 3,
+        "raw_mac_sum": -33189,
+        "relu_out": 0
+    },
+    "m2_fashion_w72": {
+        "model": "Fashion-MNIST CNN",
+        "layer": "Conv2",
+        "op_type": "Complete Conv2D 8x3x3 Output Feature",
+        "workload_size": 72,
+        "decomp": "16*4 + 8 (4x AMPC-16 + 1x AMPC-8)",
+        "chunks": 5,
+        "raw_mac_sum": -44913,
+        "relu_out": 0
+    },
+    "m3_cifar_w9": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv1",
+        "op_type": "Conv2D Single-Channel Slice (9 ops)",
+        "workload_size": 9,
+        "decomp": "AMPC-16 (9 lanes active)",
+        "chunks": 1,
+        "raw_mac_sum": -20572,
+        "relu_out": 0
+    },
+    "m3_cifar_w17": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (17 ops)",
+        "workload_size": 17,
+        "decomp": "16 + 1 (AMPC-16 + AMPC-2)",
+        "chunks": 2,
+        "raw_mac_sum": 13037,
+        "relu_out": 13037
+    },
+    "m3_cifar_w25": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (25 ops)",
+        "workload_size": 25,
+        "decomp": "16 + 9 (AMPC-16 + AMPC-16 partial)",
+        "chunks": 2,
+        "raw_mac_sum": 11916,
+        "relu_out": 11916
+    },
+    "m3_cifar_w27": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv1",
+        "op_type": "Complete Conv2D RGB 3x3x3 Output Feature",
+        "workload_size": 27,
+        "decomp": "16 + 11 (AMPC-16 + AMPC-16 partial)",
+        "chunks": 2,
+        "raw_mac_sum": -24979,
+        "relu_out": 0
+    },
+    "m3_cifar_w33": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv2",
+        "op_type": "Conv2D Channel Slice (33 ops)",
+        "workload_size": 33,
+        "decomp": "16 + 16 + 1 (2x AMPC-16 + AMPC-2)",
+        "chunks": 3,
+        "raw_mac_sum": -6345,
+        "relu_out": 0
+    },
+    "m3_cifar_w144": {
+        "model": "CIFAR-10 CNN",
+        "layer": "Conv2",
+        "op_type": "Complete Conv2D 16x3x3 Output Feature",
+        "workload_size": 144,
+        "decomp": "16*9 (9 full AMPC-16 chunks)",
+        "chunks": 9,
+        "raw_mac_sum": -44460,
+        "relu_out": 0
+    }
+}

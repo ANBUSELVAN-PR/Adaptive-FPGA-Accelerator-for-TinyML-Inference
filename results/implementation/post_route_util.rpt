@@ -1,0 +1,68 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Thu Sep 10 18:55:16 2026
+| Host         : ANBU-PC running 64-bit major release  (build 9200)
+| Command      : report_utilization -file reports/post_route_util.rpt -hierarchical -hierarchical_depth 3
+| Design       : ampc_top
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++-----------------------------+---------------------+------------+------------+---------+------+-----+--------+--------+------------+
+|           Instance          |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++-----------------------------+---------------------+------------+------------+---------+------+-----+--------+--------+------------+
+| ampc_top                    |               (top) |       2971 |       2947 |      24 |    0 | 878 |      0 |      0 |          0 |
+|   (ampc_top)                |               (top) |         14 |         14 |       0 |    0 | 303 |      0 |      0 |          0 |
+|   u_ampc_16                 |             ampc_16 |       1621 |       1621 |       0 |    0 | 260 |      0 |      0 |          0 |
+|     (u_ampc_16)             |             ampc_16 |        474 |        474 |       0 |    0 | 260 |      0 |      0 |          0 |
+|     gen_mac_units[0].u_mac  |         mac_unit_13 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[10].u_mac |         mac_unit_14 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[11].u_mac |         mac_unit_15 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[12].u_mac |         mac_unit_16 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[13].u_mac |         mac_unit_17 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[14].u_mac |         mac_unit_18 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[15].u_mac |         mac_unit_19 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[1].u_mac  |         mac_unit_20 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[2].u_mac  |         mac_unit_21 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[3].u_mac  |         mac_unit_22 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[4].u_mac  |         mac_unit_23 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[5].u_mac  |         mac_unit_24 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[6].u_mac  |         mac_unit_25 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[7].u_mac  |         mac_unit_26 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[8].u_mac  |         mac_unit_27 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[9].u_mac  |         mac_unit_28 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_ampc_2                  |              ampc_2 |        142 |        142 |       0 |    0 |  33 |      0 |      0 |          0 |
+|     gen_mac_units[1].u_mac  |         mac_unit_12 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[0].u_mac  |         mac_unit_11 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_ampc_4                  |              ampc_4 |        278 |        278 |       0 |    0 |  65 |      0 |      0 |          0 |
+|     (u_ampc_4)              |              ampc_4 |          5 |          5 |       0 |    0 |  65 |      0 |      0 |          0 |
+|     gen_mac_units[0].u_mac  |          mac_unit_7 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[1].u_mac  |          mac_unit_8 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[2].u_mac  |          mac_unit_9 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[3].u_mac  |         mac_unit_10 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_ampc_8                  |              ampc_8 |        738 |        738 |       0 |    0 | 129 |      0 |      0 |          0 |
+|     (u_ampc_8)              |              ampc_8 |        187 |        187 |       0 |    0 | 129 |      0 |      0 |          0 |
+|     gen_mac_units[0].u_mac  |            mac_unit |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[1].u_mac  |          mac_unit_0 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[2].u_mac  |          mac_unit_1 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[3].u_mac  |          mac_unit_2 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[4].u_mac  |          mac_unit_3 |         67 |         67 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[5].u_mac  |          mac_unit_4 |         73 |         73 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[6].u_mac  |          mac_unit_5 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|     gen_mac_units[7].u_mac  |          mac_unit_6 |         72 |         72 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   u_controller              | adaptive_controller |         86 |         86 |       0 |    0 |  18 |      0 |      0 |          0 |
++-----------------------------+---------------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,17 @@
+TEST=01 | MODEL=MNIST TinyMLP | LAYER=FC1 | W=          9 | PASS | Match | PyDot=                 1121 | RTLDot=       1121 | Diff=                    0 | Chunks=          1
+TEST=02 | MODEL=MNIST TinyMLP | LAYER=FC1 | W=         17 | PASS | Match | PyDot=                 2223 | RTLDot=       2223 | Diff=                    0 | Chunks=          2
+TEST=03 | MODEL=MNIST TinyMLP | LAYER=FC1 | W=         25 | PASS | Match | PyDot=                 4465 | RTLDot=       4465 | Diff=                    0 | Chunks=          2
+TEST=04 | MODEL=MNIST TinyMLP | LAYER=FC1 | W=         33 | PASS | Match | PyDot=                 6802 | RTLDot=       6802 | Diff=                    0 | Chunks=          3
+TEST=05 | MODEL=MNIST TinyMLP | LAYER=FC1 | W=        784 | PASS | Match | PyDot=                40691 | RTLDot=      40691 | Diff=                    0 | Chunks=         49
+TEST=06 | MODEL=Fashion-MNIST CNN | LAYER=Conv1 | W=          9 | PASS | Match | PyDot=                24812 | RTLDot=      24812 | Diff=                    0 | Chunks=          1
+TEST=07 | MODEL=Fashion-MNIST CNN | LAYER=Conv2 | W=         17 | PASS | Match | PyDot=               -29587 | RTLDot=     -29587 | Diff=                    0 | Chunks=          2
+TEST=08 | MODEL=Fashion-MNIST CNN | LAYER=Conv2 | W=         25 | PASS | Match | PyDot=               -27323 | RTLDot=     -27323 | Diff=                    0 | Chunks=          2
+TEST=09 | MODEL=Fashion-MNIST CNN | LAYER=Conv2 | W=         33 | PASS | Match | PyDot=               -33189 | RTLDot=     -33189 | Diff=                    0 | Chunks=          3
+TEST=10 | MODEL=Fashion-MNIST CNN | LAYER=Conv2 | W=         72 | PASS | Match | PyDot=               -44913 | RTLDot=     -44913 | Diff=                    0 | Chunks=          5
+TEST=11 | MODEL=CIFAR-10 CNN | LAYER=Conv1 | W=          9 | PASS | Match | PyDot=               -20572 | RTLDot=     -20572 | Diff=                    0 | Chunks=          1
+TEST=12 | MODEL=CIFAR-10 CNN | LAYER=Conv2 | W=         17 | PASS | Match | PyDot=                13037 | RTLDot=      13037 | Diff=                    0 | Chunks=          2
+TEST=13 | MODEL=CIFAR-10 CNN | LAYER=Conv2 | W=         25 | PASS | Match | PyDot=                11916 | RTLDot=      11916 | Diff=                    0 | Chunks=          2
+TEST=14 | MODEL=CIFAR-10 CNN | LAYER=Conv1 | W=         27 | PASS | Match | PyDot=               -24979 | RTLDot=     -24979 | Diff=                    0 | Chunks=          2
+TEST=15 | MODEL=CIFAR-10 CNN | LAYER=Conv2 | W=         33 | PASS | Match | PyDot=                -6345 | RTLDot=      -6345 | Diff=                    0 | Chunks=          3
+TEST=16 | MODEL=CIFAR-10 CNN | LAYER=Conv2 | W=        144 | PASS | Match | PyDot=               -44460 | RTLDot=     -44460 | Diff=                    0 | Chunks=          9
+OVERALL STATUS: PASS (16/16 Workloads Matched Exactly)

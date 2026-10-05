@@ -1,0 +1,34 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Thu Sep 10 19:02:56 2026
+| Host         : ANBU-PC running 64-bit major release  (build 9200)
+| Command      : report_utilization -file reports/experimental/post_route_util.rpt -hierarchical -hierarchical_depth 3
+| Design       : exp_dsp_eval_top
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------+------------+------------+------------+---------+------+-----+--------+--------+------------+
+|           Instance           |   Module   | Total LUTs | Logic LUTs | LUTRAMs | SRLs | FFs | RAMB36 | RAMB18 | DSP Blocks |
++------------------------------+------------+------------+------------+---------+------+-----+--------+--------+------------+
+| exp_dsp_eval_top             |      (top) |        374 |        374 |       0 |    0 |  65 |      0 |      0 |          4 |
+|   (exp_dsp_eval_top)         |      (top) |         66 |         66 |       0 |    0 |  65 |      0 |      0 |          4 |
+|   gen_lut_lanes[0].u_mac_lut |   mac_unit |         77 |         77 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   gen_lut_lanes[1].u_mac_lut | mac_unit_0 |         77 |         77 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   gen_lut_lanes[2].u_mac_lut | mac_unit_1 |         77 |         77 |       0 |    0 |   0 |      0 |      0 |          0 |
+|   gen_lut_lanes[3].u_mac_lut | mac_unit_2 |         77 |         77 |       0 |    0 |   0 |      0 |      0 |          0 |
++------------------------------+------------+------------+------------+---------+------+-----+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

@@ -1,0 +1,6 @@
+W=          9 | PASS | Match | PyDot=                  475 | RTLDot=        475 | Diff=                    0 | Chunks=          1
+W=         17 | PASS | Match | PyDot=                  988 | RTLDot=        988 | Diff=                    0 | Chunks=          2
+W=         25 | PASS | Match | PyDot=                 1976 | RTLDot=       1976 | Diff=                    0 | Chunks=          2
+W=         33 | PASS | Match | PyDot=                 3040 | RTLDot=       3040 | Diff=                    0 | Chunks=          3
+W=        784 | PASS | Match | PyDot=                17640 | RTLDot=      17640 | Diff=                    0 | Chunks=         49
+OVERALL STATUS: PASS (5/5 Workloads Matched)

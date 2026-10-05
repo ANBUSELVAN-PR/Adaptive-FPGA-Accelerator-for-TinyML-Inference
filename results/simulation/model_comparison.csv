@@ -1,0 +1,17 @@
+Model,Layer,Operation,MACs,AMPC Decomposition,Python,RTL,Difference,Status
+MNIST TinyMLP,FC1,Fully-Connected Dot-Product,9,AMPC-16 (9 active),1121,1121,0,PASS
+MNIST TinyMLP,FC1,Fully-Connected Dot-Product,17,16 + 1 (AMPC-16 + AMPC-2),2223,2223,0,PASS
+MNIST TinyMLP,FC1,Fully-Connected Dot-Product,25,16 + 9 (AMPC-16 + AMPC-16),4465,4465,0,PASS
+MNIST TinyMLP,FC1,Fully-Connected Dot-Product,33,16 + 16 + 1 (2x AMPC-16 + AMPC-2),6802,6802,0,PASS
+MNIST TinyMLP,FC1,Fully-Connected Dot-Product,784,49 x 16 (49x AMPC-16),40691,40691,0,PASS
+Fashion-MNIST CNN,Conv1,Conv2D 3x3 Kernel (1 channel),9,AMPC-16 (9 active),24812,24812,0,PASS
+Fashion-MNIST CNN,Conv2,Conv2D Channel Slice (17 ops),17,16 + 1 (AMPC-16 + AMPC-2),-29587,-29587,0,PASS
+Fashion-MNIST CNN,Conv2,Conv2D Channel Slice (25 ops),25,16 + 9 (AMPC-16 + AMPC-16),-27323,-27323,0,PASS
+Fashion-MNIST CNN,Conv2,Conv2D Channel Slice (33 ops),33,16 + 16 + 1 (2x AMPC-16 + AMPC-2),-33189,-33189,0,PASS
+Fashion-MNIST CNN,Conv2,Complete Conv2D 8x3x3 Output Feature,72,16*4 + 8 (4x AMPC-16 + 1x AMPC-8),-44913,-44913,0,PASS
+CIFAR-10 CNN,Conv1,Conv2D Single-Channel Slice (9 ops),9,AMPC-16 (9 active),-20572,-20572,0,PASS
+CIFAR-10 CNN,Conv2,Conv2D Channel Slice (17 ops),17,16 + 1 (AMPC-16 + AMPC-2),13037,13037,0,PASS
+CIFAR-10 CNN,Conv2,Conv2D Channel Slice (25 ops),25,16 + 9 (AMPC-16 + AMPC-16),11916,11916,0,PASS
+CIFAR-10 CNN,Conv1,Complete Conv2D RGB 3x3x3 Output Feature,27,16 + 11 (AMPC-16 + AMPC-16),-24979,-24979,0,PASS
+CIFAR-10 CNN,Conv2,Conv2D Channel Slice (33 ops),33,16 + 16 + 1 (2x AMPC-16 + AMPC-2),-6345,-6345,0,PASS
+CIFAR-10 CNN,Conv2,Complete Conv2D 16x3x3 Output Feature,144,16*9 (9x AMPC-16),-44460,-44460,0,PASS

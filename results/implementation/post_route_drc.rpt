@@ -1,0 +1,50 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2026.1 (win64) Build 6511674 Tue Jun 16 11:02:23 MDT 2026
+| Date         : Thu Sep 10 18:55:21 2026
+| Host         : ANBU-PC running 64-bit major release  (build 9200)
+| Command      : report_drc -file reports/post_route_drc.rpt
+| Design       : ampc_top
+| Device       : xc7z010clg400-1
+| Speed File   : -1
+| Design State : Fully Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: ampc_top
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max checks: <unlimited>
+             Checks found: 2
++-----------+----------+--------------------+--------+
+| Rule      | Severity | Description        | Checks |
++-----------+----------+--------------------+--------+
+| RTSTAT-10 | Warning  | No routable loads  | 1      |
+| ZPS7-1    | Warning  | PS7 block required | 1      |
++-----------+----------+--------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+RTSTAT-10#1 Warning
+No routable loads  
+71 net(s) have no routable loads. The problem bus(es) and/or net(s) are busy, output_valid, ready, u_analyzer/analyzer_capacity[3:0],
+u_analyzer/analyzer_remainder[15:0], u_analyzer/analyzer_valid,
+u_input_buffer/ibuf_rd_data[7:0], u_relu/output_data[30:0]
+u_weight_buffer/wbuf_rd_data[7:0].
+Related violations: <none>
+
+ZPS7-1#1 Warning
+PS7 block required  
+The PS7 cell must be used in this Zynq design in order to enable correct default configuration.
+Related violations: <none>
+
+
